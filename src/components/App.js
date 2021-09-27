@@ -1,16 +1,22 @@
 import './App.css';
 import { Route, Switch,BrowserRouter } from 'react-router-dom';
-import Header from './Header/Header'
+import Main from './Main/Main'
+import PageNotFound from './PageNotFound/PageNotFound';
 
 function App() {
   return (
     <BrowserRouter>
     <div className="page">
       <Switch>
+        <Route exact path="/"> 
+        <Main/>
+        </Route> 
         <Route path="/sign-in" >
-          <Header/>
           </Route>
         <Route path="/sign-up"/>
+        <Route path="*">
+          <PageNotFound/>
+        </Route>
       </Switch>
 
     </div>

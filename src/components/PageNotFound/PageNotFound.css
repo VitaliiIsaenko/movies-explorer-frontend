@@ -1,0 +1,14 @@
+.not-found {
+}
+
+.not-found__title {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 140px;
+  line-height: 169px;
+  color: #000;
+}
+
+.not-found-text {
+}

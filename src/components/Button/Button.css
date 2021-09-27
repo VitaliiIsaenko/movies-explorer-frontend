@@ -1,0 +1,17 @@
+.button {
+  transition: opacity 0.3s;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+.button_type_back {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
