@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 70px;
+}
+
+.header__logo{}
+
+.header__nav{
+    display: flex;
+    gap:30px;
+    align-items: center;
+}
