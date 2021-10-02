@@ -16,7 +16,7 @@
   color: #000;
 }
 
-.button_type_register{
+.button_type_register {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -25,13 +25,13 @@
   color: #000;
 }
 
-.button_type_login{
+.button_type_login {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   background: #000000;
   border-radius: 3px;
   width: 76px;
@@ -39,4 +39,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button_type_promo {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  opacity: 0.6;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 129px;
+  height: 36px;
+  background-color: transparent;
+  justify-content: center;
 }
