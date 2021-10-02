@@ -8,9 +8,9 @@ function Promo() {
       <div className="promo__underlay"></div>
 
         <div className="promo__info">
-          <p className="promo__description">
+          <h1 className="promo__description">
             Учебный проект студента факультета Веб-разработки.
-          </p>
+          </h1>
           <p className="promo__cta">
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
