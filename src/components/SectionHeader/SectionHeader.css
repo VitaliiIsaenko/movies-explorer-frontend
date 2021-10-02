@@ -1,0 +1,14 @@
+.section-header__header {
+  margin: 110px 0 23px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+.section-header__delimiter {
+    margin:0;
+}

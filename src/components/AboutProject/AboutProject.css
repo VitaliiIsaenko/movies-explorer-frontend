@@ -1,16 +1,7 @@
 .about-project {
   margin: 0 70px;
 }
-.about-project__header {
-  margin: 110px 0 23px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 27px;
-  letter-spacing: -0.04em;
-  color: #000000;
-}
+
 .about-project__facts {
   display: flex;
   margin-top: 70px;
@@ -38,7 +29,7 @@
 }
 
 .about-project__time {
-    margin-top:110px;
+  margin-top: 110px;
   display: flex;
 }
 .about-project__time-backend {
@@ -88,7 +79,7 @@
   line-height: 17px;
   margin: 0;
   /* identical to box height, or 121% */
-margin-top: 14px;
+  margin-top: 14px;
   text-align: center;
 
   color: #a0a0a0;

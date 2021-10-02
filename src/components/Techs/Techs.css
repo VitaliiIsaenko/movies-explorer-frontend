@@ -1,0 +1,35 @@
+.techs {
+  margin: 0 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.techs__header {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+.techs__description {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin: auto;
+  max-width: 460px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+.techs__labels {
+    margin: 100px auto 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
