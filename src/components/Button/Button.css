@@ -17,13 +17,6 @@
   line-height: 17px;
 }
 
-.button_type_register {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-}
 
 .button_type_login {
   font-family: Inter;
@@ -75,4 +68,35 @@
   line-height: 16px;
   text-align: right;
   color: #000000;
+}
+
+.button_type_register {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.button_type_header-link {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+.button_type_account {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  display: flex;
+    gap: 13px;
+    align-items: center;
 }
