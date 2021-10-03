@@ -1,5 +1,5 @@
 .section-header__header {
-  padding: 110px 0 23px;
+  margin: 110px 0 23px;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -11,4 +11,7 @@
 
 .section-header__delimiter {
     margin:0;
+    border: none;
+    height: 1px;
+    background-color: #000; 
 }

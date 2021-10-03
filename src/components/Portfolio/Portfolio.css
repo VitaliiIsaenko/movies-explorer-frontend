@@ -1,0 +1,24 @@
+.portfolio {
+  padding: 18px 70px 105px;
+}
+
+.portfolio__header {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 30px;
+  color: #a0a0a0;
+  mix-blend-mode: normal;
+}
+
+
+
+.portfolio__link-delimiter{
+  margin:0;
+  border: none;
+  height: 1px;
+  color: #E8E8E8;
+  background-color: #E8E8E8; 
+}
