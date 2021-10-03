@@ -20,17 +20,17 @@ function AboutMe() {
         </p>
         <ul className="about-me__links">
           <li>
-            <Link className="button button_type_link" to="https://google.com">
+            <a className="button button_type_link" href="https://www.facebook.com/vitaliiisaenko">
               Facebook
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
+            <a
               className="button button_type_link"
-              to="https://github.com/VitaliiIsaenko"
+              href="https://github.com/VitaliiIsaenko"
             >
               Github
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

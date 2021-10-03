@@ -6,7 +6,8 @@
 }
 
 .button:hover {
-  opacity: 0.6;
+  opacity: 0.5;
+  cursor: pointer;
 }
 .button_type_back {
   font-family: Inter;
@@ -64,4 +65,14 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
+}
+
+.button_type_menu-link {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: right;
+  color: #000000;
 }
