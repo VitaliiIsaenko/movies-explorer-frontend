@@ -1,7 +1,8 @@
 .techs {
-  margin: 0 70px;
+  padding: 100px 70px;
   display: flex;
   flex-direction: column;
+  background-color: #F5F5F5;
 }
 
 .techs__header {

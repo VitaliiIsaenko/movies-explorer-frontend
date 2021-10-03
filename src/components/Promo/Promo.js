@@ -5,8 +5,6 @@ import "../Button/Button.css";
 function Promo() {
   return (<>
       <section className="promo">
-      <div className="promo__underlay"></div>
-
         <div className="promo__info">
           <h1 className="promo__description">
             Учебный проект студента факультета Веб-разработки.

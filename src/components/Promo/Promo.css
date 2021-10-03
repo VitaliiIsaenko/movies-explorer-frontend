@@ -1,14 +1,10 @@
 .promo {
   justify-content: space-between;
   display: flex;
-  margin: 18px 70px;
-  margin-top: 75px;
+  padding: 75px 70px;
+  background-color: #F3C1F8;
 }
 
-.promo__underlay {
-    background-color: #F3C1F8;
-
-}
 .promo__info {
   max-width: 640px;
 }

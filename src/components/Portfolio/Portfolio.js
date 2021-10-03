@@ -5,12 +5,11 @@ function Portfolio() {
   return (
     <section className="portfolio">
       <h2 className="portfolio__header">Портфолио</h2>
-      {/* extract */}
-      <PortfolioLink name="Статичный сайт" link="www.google.com"></PortfolioLink>
+      <PortfolioLink name="Статичный сайт" link="https://www.google.com"></PortfolioLink>
       <hr className="portfolio__link-delimiter"/>
-      <PortfolioLink name="Адаптивный сайт" link="www.google.com"></PortfolioLink>
+      <PortfolioLink name="Адаптивный сайт" link="https://www.google.com"></PortfolioLink>
       <hr className="portfolio__link-delimiter"/>
-      <PortfolioLink name="Одностраничное приложение" link="www.google.com"></PortfolioLink>
+      <PortfolioLink name="Одностраничное приложение" link="https://www.google.com"></PortfolioLink>
     </section>
   );
 }
