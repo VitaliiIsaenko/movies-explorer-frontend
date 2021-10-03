@@ -1,5 +1,4 @@
 import logo from "../../images/logo.png";
-import account from "../../images/account.png";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -24,9 +23,7 @@ function Header(props) {
       </Link>,
       <Link className="button button_type_account" to="/profile">
         <span>Аккаунт</span>
-        <div className="header__account-icon">
-          {/* <img src={account}></img> */}
-        </div>
+        <div className="header__account-icon"> </div>
       </Link>,
     ];
   }
@@ -39,7 +36,7 @@ function Header(props) {
     >
       <img className="header__logo" src={logo} alt="логотип Место" />
       <nav>
-        <ul className="header__nav">
+        <ul className={`header__nav ${!props.isLoggedIn ? 'header__nav_type_unauthorized' : ''}`}>
           {getNavigation().map((item, index) => {
             return <li key={index}>{item}</li>;
           })}

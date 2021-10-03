@@ -4,7 +4,7 @@
   padding: 18px 70px;
 }
 
-.header_type_unauthorized{
+.header_type_unauthorized {
   background-color: #f3c1f8;
 }
 
@@ -14,22 +14,41 @@
 
 .header__nav {
   display: flex;
-  gap: 30px;
-  align-items: center;  
+  gap: 20px;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.header__account-icon{
-    border: 1px solid transparent;
-    border-radius: 6px;
-    background: #F9F9F9;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    background-image: url(../../images/account.png);
-    background-repeat: no-repeat;
-    background-position: center;
+.header__nav_type_unauthorized {
+  gap: 30px;
+}
 
+.header__account-icon {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: #f9f9f9;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  background-image: url(../../images/account.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    .header{
+        padding: 18px 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header{
+        padding: 24px 14px;
+    }
+
+    .header__nav_type_unauthorized {
+        gap: 14px;
+      }
 }

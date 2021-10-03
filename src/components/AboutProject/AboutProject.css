@@ -31,6 +31,7 @@
   margin-top: 110px;
   display: flex;
 }
+
 .about-project__time-backend {
   width: calc(100vw / 5);
 }
@@ -71,15 +72,66 @@
 }
 .about-project__time-text {
   text-align: center;
-  font-family: Inter;
+  font-family: Suisse Intl;
   font-style: normal;
-  font-weight: 500;
   font-size: 14px;
   line-height: 17px;
   margin: 0;
-  /* identical to box height, or 121% */
   margin-top: 14px;
   text-align: center;
 
   color: #a0a0a0;
 }
+
+@media screen and (max-width: 768px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+  .about-project__plan-header {
+    margin-bottom: 22px;
+  }
+
+  .about-project__time {
+    margin-top: 93px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+  .about-project__plan-header {
+    margin-bottom: 16px;
+    font-size: 18px;
+line-height: 22px;
+  }
+
+  .about-project__time {
+    margin-top: 93px;
+  }
+
+  .about-project__facts {
+    flex-flow: column;
+    gap: 50px;
+  }
+
+  .about-project__time-backend-bar {
+    font-size: 11px;
+line-height: 13px;
+  }
+  .about-project__time-frontend-bar {
+    font-size: 11px;
+line-height: 13px;
+  }
+
+  .about-project__time-text{
+font-size: 11px;
+line-height: 13px;
+  }
+
+  .about-project__plan-description{
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
+

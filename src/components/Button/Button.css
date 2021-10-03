@@ -17,7 +17,6 @@
   line-height: 17px;
 }
 
-
 .button_type_login {
   font-family: Inter;
   font-style: normal;
@@ -97,6 +96,7 @@
   align-items: center;
   color: #000000;
   display: flex;
-    gap: 13px;
-    align-items: center;
+  gap: 13px;
+  align-items: center;
+  margin-left: 30px;
 }

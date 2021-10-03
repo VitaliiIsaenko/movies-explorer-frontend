@@ -8,7 +8,7 @@ import Techs from '../Techs/Techs';
 
 function Main() {
     return (<>
-        <Header isLoggedIn={true}></Header>
+        <Header isLoggedIn={false}></Header>
         <Promo></Promo>
         <AboutProject></AboutProject>
         <Techs></Techs>
