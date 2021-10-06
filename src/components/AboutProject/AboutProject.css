@@ -103,7 +103,7 @@
   .about-project__plan-header {
     margin-bottom: 16px;
     font-size: 18px;
-line-height: 22px;
+    line-height: 22px;
   }
 
   .about-project__time {
@@ -117,21 +117,20 @@ line-height: 22px;
 
   .about-project__time-backend-bar {
     font-size: 11px;
-line-height: 13px;
+    line-height: 13px;
   }
   .about-project__time-frontend-bar {
     font-size: 11px;
-line-height: 13px;
+    line-height: 13px;
   }
 
-  .about-project__time-text{
-font-size: 11px;
-line-height: 13px;
+  .about-project__time-text {
+    font-size: 11px;
+    line-height: 13px;
   }
 
-  .about-project__plan-description{
+  .about-project__plan-description {
     font-size: 11px;
     line-height: 16px;
   }
 }
-
