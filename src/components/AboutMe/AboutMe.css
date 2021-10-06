@@ -56,7 +56,7 @@
   margin-top: 99px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
   .about-me {
     padding: 90px 50px 90px;
   }
@@ -93,7 +93,7 @@
   
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:767px) {
   .about-me {
     padding: 70px 14px 70px;
   }
@@ -126,11 +126,11 @@
     margin:20px 0 20px;
   }
 
-
   .about-me__description {
     font-size: 11px;
     line-height: 16px;
   }
+
   .about-me__links {
     margin-top: 40px;
   }

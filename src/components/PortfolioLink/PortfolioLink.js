@@ -11,7 +11,7 @@ function PortfolioLink(props) {
       rel="noopener noreferrer"
     >
       <span>{props.name}</span>
-      <img className="portfolio-link__image" src={link} alt="Ссылка"></img>
+      <div className="portfolio-link__image"></div>
     </a>
   );
 }

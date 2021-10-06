@@ -38,7 +38,7 @@
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
   .techs {
     padding: 90px 50px;
   }
@@ -59,7 +59,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
   .techs {
     background-color: transparent;
     padding: 70px 18px;

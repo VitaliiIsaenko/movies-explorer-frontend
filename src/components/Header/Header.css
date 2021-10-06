@@ -37,13 +37,13 @@
   background-position: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
     .header{
         padding: 18px 30px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .header{
         padding: 24px 14px;
     }
