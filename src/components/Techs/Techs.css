@@ -72,7 +72,7 @@
   }
 
   .techs__labels {
-    margin-top: 50px;
+    margin: 50px 50px 0;
     grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
     max-width: 178px;
   }
