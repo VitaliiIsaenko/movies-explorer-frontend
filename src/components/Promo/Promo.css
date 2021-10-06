@@ -3,6 +3,13 @@
   display: flex;
   padding: 75px 70px;
   background-color: #f3c1f8;
+
+
+  /* padding: 214px 30px 76px;
+  flex-direction: column;
+  flex-flow: column-reverse;
+  align-items: center;
+  margin-top: -74px; */
 }
 
 .promo__info {

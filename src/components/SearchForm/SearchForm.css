@@ -1,0 +1,41 @@
+.language-options__pseudo-radio {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1.17;
+    margin: 8px;
+}
+
+.language-options__radio:checked+.language-options__pseudo-radio {
+    text-decoration: underline;
+}
+
+.language-options__radio:disabled+.language-options__pseudo-radio {
+    cursor: default;
+    color: #eee;
+    opacity: 1;
+}
+
+.language-options__radio:disabled:checked+.language-options__pseudo-radio {
+    cursor: default;
+    text-decoration: underline;
+    color: #eee;
+    opacity: 1;
+}
+
+.language-options__radio:focus+.language-options__pseudo-radio {}
+
+@media screen and (max-width:768px) {
+    .language-options__pseudo-radio {
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+.language-options__radio {
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
+}
