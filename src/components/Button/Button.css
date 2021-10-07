@@ -94,16 +94,22 @@
   display: flex;
   align-items: center;
   color: #000000;
-  display: flex;
-  gap: 13px;
   align-items: center;
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
+@media screen and (max-width: 1279px) {
+  .button_type_header-link{
+    font-size: 18px;
+    line-height: 22px;
+      }
+}
 
 @media screen and (max-width: 767px) {
   .button_type_menu-link {
     font-size: 12px;
     line-height: 15px;
   }
+
+
 }

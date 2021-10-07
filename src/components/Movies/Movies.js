@@ -1,11 +1,13 @@
+import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import "./Movies.css";
 
 function Movies() {
-    console.log('hey');
   return (
     <section className="movies">
-      <SearchForm />
+        <Header isLoggedIn={true}/>
+        <div className="movies-fake"></div>
+      {/* <SearchForm /> */}
     </section>
   );
 }
