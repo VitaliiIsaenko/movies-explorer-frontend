@@ -1,0 +1,35 @@
+.menu-link_type_hidden-on-big-screen {
+  display: none;
+}
+
+.menu-link {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+
+@media screen and (max-width: 1279px) {
+  .menu-link {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .menu-link_type_active {
+    border-bottom: 2px solid black;
+    padding-bottom: 4px;
+  }
+
+  .menu-link_type_hidden-on-big-screen {
+    display: initial;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

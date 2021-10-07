@@ -76,14 +76,7 @@
   line-height: 16px;
 }
 
-.button_type_header-link {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  color: #000;
-}
+
 
 .button_type_account {
   font-family: Inter;
@@ -95,21 +88,7 @@
   align-items: center;
   color: #000000;
   align-items: center;
-  margin-left: 50px;
+  gap: 13px;
 }
 
-@media screen and (max-width: 1279px) {
-  .button_type_header-link{
-    font-size: 18px;
-    line-height: 22px;
-      }
-}
 
-@media screen and (max-width: 767px) {
-  .button_type_menu-link {
-    font-size: 12px;
-    line-height: 15px;
-  }
-
-
-}
