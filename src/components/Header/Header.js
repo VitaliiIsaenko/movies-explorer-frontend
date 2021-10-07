@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../images/logo.png";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import '../Button/Button.css';
 import MenuLink from "../MenuLink/MenuLink";
 
 function Header(props) {
@@ -41,7 +42,7 @@ function Header(props) {
               <div className="header__container">
                 <button
                   type="button"
-                  className={`header__close ${
+                  className={`button header__close ${
                     isOpen ? "header__close_type_open" : ""
                   }`}
                   onClick={handleCloseMenuClick}
@@ -67,7 +68,7 @@ function Header(props) {
           </nav>
           <button
             type="button"
-            className="header__burger"
+            className="button header__burger"
             onClick={handleMenuClick}
           ></button>
         </>
