@@ -30,10 +30,17 @@
   background-position: center;
   min-width: 30px;
   min-height: 30px;
+  cursor: pointer;
 }
 .card__action_type_remove {
+    visibility: hidden;
   background-image: url("../../images/remove.png");
 }
+
+.card:hover .card__action_type_remove {
+    visibility: initial;
+}
+
 .card__action_type_like {
   background-image: url("../../images/like.png");
 }

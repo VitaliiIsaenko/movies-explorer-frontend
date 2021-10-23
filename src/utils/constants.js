@@ -73,3 +73,21 @@ export const cards = [
     duration: "1ч 7м",
   },
 ];
+
+export const savedCards = [
+  {
+    img: pic,
+    name: "33 слова о дизайне",
+    duration: "1ч 47м",
+  },
+  {
+    img: pic1,
+    name: "Киноальманах «100 лет дизайна»",
+    duration: "1ч 3м",
+  },
+  {
+    img: pic2,
+    name: "В погоне за Бенкси",
+    duration: "1ч 42м",
+  },
+];

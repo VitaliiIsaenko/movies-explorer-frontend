@@ -1,4 +1,8 @@
 .page {
     margin: auto;
     max-width: 1280px;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
