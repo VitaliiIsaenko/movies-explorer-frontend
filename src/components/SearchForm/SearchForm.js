@@ -1,12 +1,12 @@
 import "./SearchForm.css";
 import "../Button/Button.css";
-import React from 'react';
+import React from "react";
 import Delimiter from "../Delimiter/Delimiter";
 
 function SearchForm() {
-  const [isOn, setIsOn] = React.useState(false);
-  function handleSwitchClick(){
-    setIsOn(!isOn);
+  const [shortMoviesOnly, setShortMoviesOnly] = React.useState(false);
+  function handleSwitchChange() {
+    setShortMoviesOnly(!shortMoviesOnly);
   }
 
   return (
@@ -25,34 +25,16 @@ function SearchForm() {
             type="checkbox"
             name="short-movies"
             className="search__filter-checkbox"
-            onChange={handleSwitchClick}
-            checked={isOn}
+            onChange={handleSwitchChange}
+            value={shortMoviesOnly}
           ></input>
-          <div className="search__filter">
-            <div className="button search__filter-pseudo-checkbox">
-              <div className={`search__filter-switch ${isOn ?'search__filter-switch_type_on':''}`}></div>
-            </div>
-            <span className="search__filter-text">Короткометражки</span>
-          </div>
-        </label>
-        <input
-          id="filter"
-          type="checkbox"
-          name="short-movies"
-          className="test-checkbox"
-        ></input>
+          <span className="button search__filter-pseudo-checkbox">
+              <div
+                className='search__filter-switch'
+              ></div>
+          </span>
+          <span className="search__filter-text">Короткометражки</span>
 
-        <label className="language-options__label" htmlFor="ru">
-          <input
-            type="radio"
-            className="language-options__radio"
-            name="language"
-            id="ru"
-            value="ru"
-            checked
-            onChange={console.log("hey")}
-          />
-          <span className="language-options__pseudo-radio link">Ru</span>
         </label>
       </form>
       <Delimiter />
