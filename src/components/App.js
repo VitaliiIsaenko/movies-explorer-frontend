@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Main from "./Main/Main";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Movies from "./Movies/Movies";
+import SavedMovies from "./SavedMovies/SavedMovies";
 
 function App(props) {
   return (
@@ -18,7 +19,9 @@ function App(props) {
           <Route path="/movies" >
             <Movies/>
           </Route>
-          <Route path="/saved-movies" />
+          <Route path="/saved-movies">
+            <SavedMovies/>
+            </Route>
           <Route path="*">
             <PageNotFound />
           </Route>

@@ -2,11 +2,12 @@ import "./SearchForm.css";
 import "../Button/Button.css";
 import React from "react";
 import Delimiter from "../Delimiter/Delimiter";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm() {
   const [shortMoviesOnly, setShortMoviesOnly] = React.useState(false);
-  function handleSwitchChange() {
-    setShortMoviesOnly(!shortMoviesOnly);
+  function handleSwitchChange(value) {
+    setShortMoviesOnly(value);
   }
 
   return (
@@ -18,24 +19,7 @@ function SearchForm() {
             Найти
           </button>
         </div>
-
-        <label className="search__filter-container" htmlFor="filter">
-          <input
-            id="filter"
-            type="checkbox"
-            name="short-movies"
-            className="search__filter-checkbox"
-            onChange={handleSwitchChange}
-            value={shortMoviesOnly}
-          ></input>
-          <span className="button search__filter-pseudo-checkbox">
-              <div
-                className='search__filter-switch'
-              ></div>
-          </span>
-          <span className="search__filter-text">Короткометражки</span>
-
-        </label>
+        <FilterCheckbox switchChangeHandler={handleSwitchChange} text="Короткометражки"/>
       </form>
       <Delimiter />
     </section>
