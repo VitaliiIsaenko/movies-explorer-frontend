@@ -6,7 +6,7 @@ import Portfolio from '../Portfolio/Portfolio';
 import Promo from '../Promo/Promo';
 import Techs from '../Techs/Techs';
 
-function Main() {
+function Main(props) {
     return (<>
         <Header isLoggedIn={true}></Header>
         <Promo></Promo>

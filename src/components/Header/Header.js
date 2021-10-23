@@ -15,7 +15,6 @@ function Header(props) {
   function handleCloseMenuClick() {
     setIsOpen(false);
   }
-
   return (
     <header
       className={`header ${
@@ -53,7 +52,7 @@ function Header(props) {
                     name="Главная"
                     hiddenOnBigScreen={true}
                   />
-                  <MenuLink link="/movies" name="Фильмы" isActive={true} />
+                  <MenuLink link="/movies" name="Фильмы" />
                   <MenuLink
                     link="/saved-movies"
                     name="Сохранённые фильмы"

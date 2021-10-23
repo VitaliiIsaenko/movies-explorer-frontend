@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./MenuLink.css";
 import "../Button/Button.css";
 
 function MenuLink(props) {
+    const location = useLocation();
+
   return (
     <Link
       to={props.link}
@@ -10,7 +12,7 @@ function MenuLink(props) {
         props.hiddenOnBigScreen
           ? "menu-link_type_hidden-on-big-screen"
           : ""
-      } ${props.isActive ? "menu-link_type_active" : ""}`}
+      } ${location.pathname === props.link ? "menu-link_type_active" : ""}`}
     >
       {props.name}
     </Link>

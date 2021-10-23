@@ -1,5 +1,6 @@
 import "./Footer.css";
 import "../Button/Button.css";
+import Delimiter from '../Delimiter/Delimiter';
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
       <p className="footer__about-template">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </p>
-      <hr className="footer__delimiter"></hr>
+      <Delimiter/>
       <div className="footer__bottom">
         <p className="footer__copy">&copy; 2021</p>
         <nav>

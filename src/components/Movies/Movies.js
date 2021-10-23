@@ -6,8 +6,7 @@ function Movies() {
   return (
     <section className="movies">
         <Header isLoggedIn={true}/>
-        <div className="movies-fake"></div>
-      {/* <SearchForm /> */}
+      <SearchForm />
     </section>
   );
 }

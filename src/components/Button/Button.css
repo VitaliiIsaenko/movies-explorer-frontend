@@ -23,7 +23,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #ffffff;
+  color: #fff;
   background: #000000;
   border-radius: 3px;
   width: 76px;
@@ -65,7 +65,7 @@
   font-weight: normal;
   font-size: 13px;
   line-height: 16px;
-  color: #000000;
+  color: #000;
 }
 
 .button_type_register {
@@ -76,8 +76,6 @@
   line-height: 16px;
 }
 
-
-
 .button_type_account {
   font-family: Inter;
   font-style: normal;
@@ -86,9 +84,24 @@
   line-height: 16px;
   display: flex;
   align-items: center;
-  color: #000000;
+  color: #000;
   align-items: center;
   gap: 13px;
 }
 
-
+.button_type_search{
+  padding:0;
+  border: 1px solid #000;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  background: #000;
+  border-radius: 3px;
+  width: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

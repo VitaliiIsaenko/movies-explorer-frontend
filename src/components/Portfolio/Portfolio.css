@@ -13,14 +13,6 @@
   mix-blend-mode: normal;
 }
 
-.portfolio__link-delimiter {
-  margin: 0;
-  border: none;
-  height: 1px;
-  color: #e8e8e8;
-  background-color: #e8e8e8;
-}
-
 @media screen and (max-width: 1279px) {
   .portfolio {
     padding: 0 50px 90px;
@@ -35,14 +27,6 @@
     margin: 0 0 30px;
     color: #a0a0a0;
     mix-blend-mode: normal;
-  }
-
-  .portfolio__link-delimiter {
-    margin: 0;
-    border: none;
-    height: 1px;
-    color: #e8e8e8;
-    background-color: #e8e8e8;
   }
 }
 

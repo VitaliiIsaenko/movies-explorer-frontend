@@ -4,7 +4,7 @@ import Main from "./Main/Main";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Movies from "./Movies/Movies";
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="page">
