@@ -1,0 +1,38 @@
+.profile {
+  max-width: 410px;
+  margin: auto;
+  width: 410px;
+}
+
+.profile__welcome {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 107px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.profile__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.profile__text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.profile__buttons {
+  align-items: center;
+  margin-top: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

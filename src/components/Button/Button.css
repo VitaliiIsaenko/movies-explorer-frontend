@@ -125,6 +125,23 @@
   border-radius: 3px;
 }
 
+.button_type_profile-edit{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.button_type_profile-logout{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color:#FF4062;
+}
+
 @media screen and (max-width: 767px) {
   .button_type_search {
     font-size: 12px;

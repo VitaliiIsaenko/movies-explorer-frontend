@@ -15,6 +15,8 @@ function Header(props) {
   function handleCloseMenuClick() {
     setIsOpen(false);
   }
+
+  //todo: get isLoggedIn from context
   return (
     <header
       className={`header ${

@@ -4,6 +4,7 @@ import Main from "./Main/Main";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Movies from "./Movies/Movies";
 import SavedMovies from "./SavedMovies/SavedMovies";
+import Profile from "./Profile/Profile";
 
 function App(props) {
   return (
@@ -15,7 +16,9 @@ function App(props) {
           </Route>
           <Route path="/sign-up" />
           <Route path="/sign-in"/>
-          <Route path="/profile" />
+          <Route path="/profile" >
+            <Profile/>
+            </Route>
           <Route path="/movies" >
             <Movies/>
           </Route>
