@@ -9,7 +9,7 @@
   opacity: 0.5;
   cursor: pointer;
 }
-.button_type_back {
+.button_type_cta {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -169,6 +169,26 @@
   background-repeat: no-repeat;
   padding:0;
 }
+
+.button_type_submit{
+  padding: 0;
+  border: 1px solid #000;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  background: #000;
+  border-radius: 3px;
+  min-width: 70px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 @media screen and (max-width: 1279px) {
   .button_type_burger {
     display: initial;
