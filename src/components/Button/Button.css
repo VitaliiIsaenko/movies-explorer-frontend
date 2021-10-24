@@ -125,7 +125,7 @@
   border-radius: 3px;
 }
 
-.button_type_profile-edit{
+.button_type_profile-edit {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -133,13 +133,13 @@
   line-height: 16px;
 }
 
-.button_type_profile-logout{
+.button_type_profile-logout {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
-  color:#FF4062;
+  color: #ff4062;
 }
 
 @media screen and (max-width: 767px) {
@@ -147,7 +147,16 @@
     font-size: 12px;
     line-height: 18px;
   }
-  .button_type_more-cards{
+  .button_type_more-cards {
     width: 240px;
+  }
+
+  .button_type_profile-edit {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .button_type_profile-logout {
+    font-size: 12px;
+    line-height: 15px;
   }
 }
