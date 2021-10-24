@@ -19,13 +19,9 @@ function Header(props) {
   //todo: get isLoggedIn from context
   return (
     <header
-      className={`header ${
-        !props.isLoggedIn ? "header_type_unauthorized" : ""
-      }`}
+      className="header"
     >
-      <img className="header__logo" src={logo} alt="логотип Место" />
-      {props.isLoggedIn ? (
-        <>
+      <img className="header__logo" src={logo} alt="логотип" />
           <nav
             className={`header__nav-container ${
               isOpen ? "header__nav-container_type_open" : ""
@@ -72,19 +68,6 @@ function Header(props) {
             className="button header__burger"
             onClick={handleMenuClick}
           ></button>
-        </>
-      ) : (
-        <>
-          <nav className="header__nav-auth">
-            <Link className="button button_type_register" to="/sign-up">
-              Регистрация
-            </Link>
-            <Link className="button button_type_login" to="/sign-in">
-              Войти
-            </Link>
-          </nav>
-        </>
-      )}
     </header>
   );
 }
