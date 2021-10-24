@@ -5,11 +5,14 @@ import SearchForm from "../SearchForm/SearchForm";
 import "./Movies.css";
 import Preloader from "../Preloader/Preloader";
 import { cards } from "../../utils/constants";
+import Navigation from "../Navigation/Navigation";
 
 function Movies(props) {
   return (
     <>
-      <Header isLoggedIn={true} />
+      <Header>
+        <Navigation />
+      </Header>
       <section className="movies">
         <SearchForm />
         <MoviesCardList cards={cards} />

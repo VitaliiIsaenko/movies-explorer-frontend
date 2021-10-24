@@ -1,17 +1,5 @@
 .nav-tab {
   display: flex;
-  justify-content: space-between;
-  padding: 18px 70px;
-  background-color: #f3c1f8;
-}
-
-/* todo: check if needed, remove from Header.css if not */
-.nav-tab__logo {
-  object-fit: contain;
-}
-
-.nav-tab__auth {
-  display: flex;
   gap: 30px;
   align-items: center;
   list-style: none;
@@ -19,18 +7,8 @@
   margin: 0;
 }
 
-@media screen and (max-width: 1279px) {
-    .nav-tab {
-        padding: 21px 30px;
-      }
-}
-
 @media screen and (max-width: 767px) {
-    .nav-tab {
-        padding: 18px 14px;
-      }
-
-    .nav-tab__auth  {
-      gap: 14px;
-    }
+  .nav-tab {
+    gap: 14px;
+  }
 }

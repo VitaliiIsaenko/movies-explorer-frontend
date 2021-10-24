@@ -3,14 +3,16 @@ import Header from "../Header/Header";
 import "./Profile.css";
 import "../Button/Button.css";
 import { Link } from "react-router-dom";
-
+import Navigation from "../Navigation/Navigation";
 function Profile() {
   const userName = "Виталий"; //todo: get from state
   const userEmail = "pochta@yandex.ru";
 
   return (
     <>
-      <Header isLoggedIn={true} />
+      <Header>
+        <Navigation />
+      </Header>
       <section className="profile">
         <div className="profile__info">
           <h1 className="profile__welcome">Привет, {userName}!</h1>

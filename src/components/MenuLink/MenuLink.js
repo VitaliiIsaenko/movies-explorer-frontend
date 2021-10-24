@@ -2,19 +2,20 @@ import { Link, useLocation } from "react-router-dom";
 import "./MenuLink.css";
 import "../Button/Button.css";
 
-function MenuLink(props) {
+function MenuLink({link,hiddenOnBigScreen,name,onClick}) {
     const location = useLocation();
 
   return (
     <Link
-      to={props.link}
+      to={link}
+      onClick={onClick}
       className={`button menu-link ${
-        props.hiddenOnBigScreen
+        hiddenOnBigScreen
           ? "menu-link_type_hidden-on-big-screen"
           : ""
-      } ${location.pathname === props.link ? "menu-link_type_active" : ""}`}
+      } ${location.pathname === link ? "menu-link_type_active" : ""}`}
     >
-      {props.name}
+      {name}
     </Link>
   );
 }
