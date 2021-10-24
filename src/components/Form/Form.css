@@ -12,3 +12,10 @@
     flex-direction: column;
     gap: 20px;
 }
+
+@media screen and (max-width: 767px) {
+    .form {
+        height: 100%;
+        gap:0;
+    }
+}

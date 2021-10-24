@@ -7,7 +7,6 @@ function Form(props) {
       <button className="button button_type_submit" type="submit">
         {props.buttonText}
       </button>
-
     </form>
   );
 }

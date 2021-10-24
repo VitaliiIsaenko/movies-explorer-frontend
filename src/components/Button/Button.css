@@ -225,4 +225,8 @@
     right: 13px;
     top: 13px;
   }
+
+  .button_type_submit{
+    /* margin-top: auto; */
+  }
 }

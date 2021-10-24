@@ -11,30 +11,26 @@ function Register() {
       <section className="register">
         <img className="register__logo" src={logo} alt="логотип Место" />
         <h1 className="register__welcome">Добро пожаловать!</h1>
+
+        <div className="register__form-container">
         <Form
           name="register"
           buttonText="Зарегестрироваться"
           onSubmit={handleRegistration}
           className="register__form"
         >
-          <TextInput
-          label="Имя"
-          type="text"
-          />
-          <TextInput
-          label="Email"
-          type="email"
-          />
-          <TextInput
-          label="Имя"
-          type="password"
-          />
+          <TextInput label="Имя" type="text" />
+          <TextInput label="Email" type="email" />
+          <TextInput label="Пароль" type="password" />
         </Form>
-        
+
         <div className="register__alternative">
           <p className="register__capture">Уже зарегестрированы?</p>
-          <Link className="button button_type_cta" to="sign-in">Войти</Link>
-      </div>
+          <Link className="button button_type_cta" to="sign-in">
+            Войти
+          </Link>
+        </div>
+        </div>
       </section>
     </>
   );

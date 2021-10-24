@@ -5,6 +5,8 @@
 }
 
 .register__logo {
+  height: 38px;
+  width: 38px;
 }
 
 .register__alternative {
@@ -12,7 +14,6 @@
   flex-direction: row;
   justify-content: center;
   gap: 6px;
-  margin-top: 16px;
 }
 
 .register__capture {
@@ -34,4 +35,44 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
+}
+
+.register__form-container {
+    gap:16px;
+}
+
+@media screen and (max-width: 1279px) {
+  .register {
+    padding-top: 0;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .register {
+    margin: 0;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 56px 30px 30px;
+    align-items: center;
+    height: auto;
+    height: calc(100vh - 86px);
+  }
+
+  .register__welcome {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    padding: 50px 0 80px;
+  }
+
+  .register__form-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap:14px;
+  }
 }
