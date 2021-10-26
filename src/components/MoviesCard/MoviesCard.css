@@ -31,18 +31,22 @@
   min-width: 30px;
   min-height: 30px;
   cursor: pointer;
+
+  border: none;
+  background-color: transparent;
 }
 .card__action_type_remove {
-    visibility: hidden;
+  visibility: hidden;
   background-image: url("../../images/remove.png");
 }
 
 .card:hover .card__action_type_remove {
-    visibility: initial;
+  visibility: initial;
 }
 
 .card__action_type_like {
   background-image: url("../../images/like.png");
+  transition: background-image .3s; 
 }
 .card__action_type_like-active {
   background-image: url("../../images/like-active.png");

@@ -1,4 +1,3 @@
-import link from "../../images/link.png";
 import "../Button/Button.css";
 import "./PortfolioLink.css";
 

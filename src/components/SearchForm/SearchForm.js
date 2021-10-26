@@ -6,7 +6,7 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm() {
   const [shortMoviesOnly, setShortMoviesOnly] = React.useState(false);
-  function handleSwitchChange(value) {
+  function handleFilterChange(value) {
     setShortMoviesOnly(value);
   }
 
@@ -19,7 +19,7 @@ function SearchForm() {
             Найти
           </button>
         </div>
-        <FilterCheckbox switchChangeHandler={handleSwitchChange} text="Короткометражки"/>
+        <FilterCheckbox onFilterChange={handleFilterChange} text="Короткометражки"/>
       </form>
       <Delimiter />
     </section>

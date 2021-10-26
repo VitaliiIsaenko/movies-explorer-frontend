@@ -50,6 +50,7 @@
     left: 6px;
     position: absolute;
     border-radius: 100%;
+    transition: left .3s;
   }
   
   .filter-checkbox__switch {

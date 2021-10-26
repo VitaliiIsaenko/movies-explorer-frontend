@@ -3,7 +3,7 @@ import "../Button/Button.css";
 
 function Preloader() {
   return (
-    <section class="preloader">
+    <section className="preloader">
       <button type="button" className="button button_type_more-cards">
         Ещё
       </button>

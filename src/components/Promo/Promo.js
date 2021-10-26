@@ -1,9 +1,11 @@
 import promo from "../../images/promo.svg";
 import "./Promo.css";
 import "../Button/Button.css";
+import { Link } from "react-router-dom";
 
 function Promo() {
-  return (<>
+  return (
+    <>
       <section className="promo">
         <div className="promo__info">
           <h1 className="promo__description">
@@ -12,13 +14,14 @@ function Promo() {
           <p className="promo__cta">
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
-          <button type="button" className="button button_type_promo">
+          <Link className="button button_type_promo" to="sign-in">
             Узнать больше
-          </button>
+          </Link>
         </div>
         <img className="promo__img" src={promo} alt="Промо Веб" />
       </section>
-  </>);
+    </>
+  );
 }
 
 export default Promo;

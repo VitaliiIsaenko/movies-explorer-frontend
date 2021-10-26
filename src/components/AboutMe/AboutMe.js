@@ -1,6 +1,5 @@
 import SectionHeader from "../SectionHeader/SectionHeader";
 import photo from "../../images/photo.jpg";
-import { Link } from "react-router-dom";
 import "./AboutMe.css";
 
 function AboutMe() {
