@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 70px;
+}
+
+.header__logo {
+  object-fit: contain;
+}
+
+.header_type_pink{
+  background-color: #f3c1f8;
+}

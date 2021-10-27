@@ -1,0 +1,33 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.text-input__label {
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+}
+
+.text-input__input {
+  padding: 15px;
+
+  background-color: #f9f9f9;
+  border: none;
+  border-radius: 8px;
+
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.text-input__input:focus {
+    outline:none;
+}
+

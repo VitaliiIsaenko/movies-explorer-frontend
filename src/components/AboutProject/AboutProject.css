@@ -1,0 +1,136 @@
+.about-project {
+  padding: 110px 70px;
+}
+
+.about-project__facts {
+  display: flex;
+  margin-top: 70px;
+}
+
+.about-project__plan-header {
+  margin: 0 0 26px;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+.about-project__plan-description {
+  margin: 0;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.about-project__time {
+  margin-top: 110px;
+  display: flex;
+}
+
+.about-project__time-backend {
+  width: calc(100vw / 5);
+}
+.about-project__time-backend-bar {
+  text-align: center;
+  background-color: #000;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  height: 36px;
+  align-items: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+.about-project__time-frontend-bar {
+  text-align: center;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  height: 36px;
+  align-items: center;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+.about-project__time-frontend {
+  width: calc(100vw / 5 * 4);
+}
+.about-project__time-text {
+  text-align: center;
+  font-family: Suisse Intl;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  margin-top: 14px;
+  text-align: center;
+
+  color: #a0a0a0;
+}
+
+@media screen and (max-width: 1279px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+  .about-project__plan-header {
+    margin-bottom: 22px;
+  }
+
+  .about-project__time {
+    margin-top: 93px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+  .about-project__plan-header {
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .about-project__time {
+    margin-top: 93px;
+  }
+
+  .about-project__facts {
+    flex-flow: column;
+    gap: 50px;
+  }
+
+  .about-project__time-backend-bar {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .about-project__time-frontend-bar {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .about-project__time-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .about-project__plan-description {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
