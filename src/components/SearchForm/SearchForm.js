@@ -14,7 +14,7 @@ function SearchForm() {
     <section className="search">
       <form className="search__form">
         <div className="search__container">
-          <input type="text" className="search__bar" placeholder="Фильм" />
+          <input type="text" className="search__bar" placeholder="Фильм" required/>
           <button type="button" className="button button_type_search">
             Найти
           </button>

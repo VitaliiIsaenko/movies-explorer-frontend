@@ -1,5 +1,5 @@
 .portfolio-link {
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
@@ -13,25 +13,12 @@
 
 .portfolio-link__image {
   object-fit: contain;
-  background-image: url("../../images/link.png");
+  background-image: url("../../images/link-big.png");
   background-position: center;
   width: 29px;
   height: 60px;
   background-repeat: no-repeat;
 }
-
-@media screen and (max-width: 1279px) {
-  .portfolio-link {
-    font-size: 28px;
-    line-height: 50px;
-  }
-
-  .portfolio-link__image {
-    background-image: url("../../images/link-mid.png");
-    width: 27px;
-  }
-}
-
 
 @media screen and (max-width: 1279px) {
   .portfolio-link {

@@ -18,7 +18,7 @@
 }
 
 .card__name {
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -37,7 +37,7 @@
 }
 .card__action_type_remove {
   visibility: hidden;
-  background-image: url("../../images/remove.png");
+  background-image: url("../../images/remove.svg");
 }
 
 .card:hover .card__action_type_remove {
@@ -45,14 +45,14 @@
 }
 
 .card__action_type_like {
-  background-image: url("../../images/like.png");
+  background-image: url("../../images/like.svg");
   transition: background-image .3s; 
 }
 .card__action_type_like-active {
-  background-image: url("../../images/like-active.png");
+  background-image: url("../../images/like-active.svg");
 }
 .card__duration {
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 11px;

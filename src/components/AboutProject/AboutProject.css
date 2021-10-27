@@ -9,7 +9,7 @@
 
 .about-project__plan-header {
   margin: 0 0 26px;
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -19,7 +19,7 @@
 }
 .about-project__plan-description {
   margin: 0;
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -38,7 +38,7 @@
 .about-project__time-backend-bar {
   text-align: center;
   background-color: #000;
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -53,7 +53,7 @@
 }
 .about-project__time-frontend-bar {
   text-align: center;
-  font-family: Inter;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
