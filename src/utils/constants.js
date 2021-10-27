@@ -10,7 +10,14 @@ import pic8 from "../images/cards/pic8.png";
 import pic9 from "../images/cards/pic9.png";
 import pic10 from "../images/cards/pic10.png";
 import pic11 from "../images/cards/pic11.png";
-
+// "id": 2,
+// "nameRU": "All Tomorrow's Parties",
+// "nameEN": "All Tomorrow's Parties",
+// "director": " Джонатан Кауэтт",
+// "country": "Великобритания",
+// "year": "2009",
+// "duration": 82,
+// "description":
 export const cards = [
   {
     id: 0,

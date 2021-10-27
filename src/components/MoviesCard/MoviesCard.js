@@ -15,7 +15,7 @@ function MoviesCard({ card, savedCard, onCardRemove, onCardLike }) {
 
   return (
     <div className="card">
-      <img src={card.img} alt="Фото фильма" />
+      <img className="card__picture" src={card.img} alt="Фото фильма" />
 
       <div className="card__bar">
         <div className="card__name-like-section">
