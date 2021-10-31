@@ -7,6 +7,7 @@
   width: 364px;
   height: 281px;
 }
+
 .card__bar {
   padding: 9px 16px 16px;
   flex-direction: column;
@@ -31,7 +32,11 @@
   font-size: 13px;
   line-height: 16px;
   margin: 0;
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .card__action {
   background-repeat: no-repeat;
   background-position: center;
@@ -42,6 +47,7 @@
   border: none;
   background-color: transparent;
 }
+
 .card__action_type_remove {
   visibility: hidden;
   background-image: url("../../images/remove.svg");
@@ -55,9 +61,11 @@
   background-image: url("../../images/like.svg");
   transition: background-image 0.3s;
 }
+
 .card__action_type_like-active {
   background-image: url("../../images/like-active.svg");
 }
+
 .card__duration {
   font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;

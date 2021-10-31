@@ -10,23 +10,32 @@ import React from "react";
 
 function Movies(props) {
   const [cards, setCards] = React.useState([]);
+  const [cardsToDisplay, setCardsToDisplay] = React.useState([]);
 
-function handleSearch(searchText) {
-  console.log('hey');
-  if (cards.length !== 0) {
-    //todo: perform search
-    console.log('hey');
-    setCards(cards.filter(c => searchText.includes(searchText)));
+  function handleSearch(searchText) {
+    if (cards.length !== 0) {
+      setCardsToDisplay(filterBy(cards, searchText));
+    } else {
+      api
+        .getMovies()
+        .then((result) => {
+          setCards(result);
+          setCardsToDisplay(filterBy(result, searchText));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
-  api
-    .getMovies()
-    .then((result) => {
-      setCards(cards.filter(c => searchText.includes(searchText)));
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+
+  function handleCardRemove(card) {
+    setCards(cards.filter((c) => c.id !== card.id));
+  }
+
+  function filterBy(cards, searchText) {
+    return cards.filter((c) => c.name.includes(searchText.trim()));
+  }
+  console.log(cardsToDisplay);
 
   return (
     <>
@@ -34,8 +43,12 @@ function handleSearch(searchText) {
         <Navigation />
       </Header>
       <section className="movies">
-        <SearchForm onSubmit={handleSearch}/>
-        <MoviesCardList cards={cards} />
+        <SearchForm onSubmit={handleSearch} />
+        {cardsToDisplay.length !== 0 &&
+        <MoviesCardList
+          cards={cardsToDisplay}
+          onCardRemove={handleCardRemove}
+        />}
         <Preloader />
       </section>
       <Footer />

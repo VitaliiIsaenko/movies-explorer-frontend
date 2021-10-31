@@ -3,14 +3,8 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
 
 function MoviesCardList(props) {
-  const [cards, setCards] = React.useState([]);
-
-  useEffect(() => {
-    setCards(props.cards);
-  }, [props.cards]);
-
   function handleCardRemove(card) {
-    setCards(cards.filter((c) => c.id !== card.id));
+    props.onCardRemove(card);
   }
 
   function handleCardLike(isLiked) {
@@ -20,7 +14,7 @@ function MoviesCardList(props) {
   return (
     <section className="cards">
       <ul className="card-list">
-        {cards.map((c) => {
+        {props.cards.map((c) => {
           return (
             <li key={c.id}>
               <MoviesCard
