@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
+import api from "../../utils/MainApi";
 
 function MoviesCardList(props) {
   function handleCardRemove(card) {
     props.onCardRemove(card);
   }
 
-  function handleCardLike(isLiked) {
-    
+  function handleCardLike(card, isLiked) {
+    if (isLiked) {
+    api.postMovie(card);
+    } else {
+      api.deleteMovie(card.id);
+    }
   }
 
   return (

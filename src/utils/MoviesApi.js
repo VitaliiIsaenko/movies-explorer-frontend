@@ -11,12 +11,9 @@ class MoviesApi {
       .then(this._checkResponse)
       .then((movies) =>
         movies.map((m) => {
-          return {
-            id: m.id,
-            img: `${this._baseUrl}${m.image.url}`,
-            name: m.nameRU,
-            duration: m.duration,
-          };
+          m.img = `${this._baseUrl}${m.image.url}`;
+          m.name = m.nameRU;
+          return m;
         })
       );
   }

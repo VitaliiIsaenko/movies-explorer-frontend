@@ -14,22 +14,33 @@ function Movies(props) {
   const [cardsToDisplay, setCardsToDisplay] = React.useState([]);
   const [cardsFiltered, setCardsFiltered] = React.useState([]);
   const [error, setError] = React.useState(false);
-  const [pageSize, setPageSize] = React.useState(3);
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
+  const [pageSize, setPageSize] = React.useState(columnSize());
 
   useEffect(() => {
-    setPageSize(columnSize);
+    setPageSize(columnSize());
   }, [width]);
 
+  useEffect(() => {
+    const savedCardsJson = localStorage.getItem("cards");
+    if (savedCardsJson == null) {
+      return;
+    }
+    const savedCards = JSON.parse(savedCardsJson);
+    console.log(savedCards);
+    setCards(savedCards.all);
+    setCardsFiltered(savedCards.filtered);
+    setCardsToDisplay(savedCards.displayed);
+  }, []);
+
   function columnSize() {
-    if (width > 1136 ) {
+    if (width > 1136) {
       return 3;
     }
     if (width > 633) {
       return 2;
     }
     return 1;
-    // if (width > )
   }
 
   function handleSearch(searchText) {
@@ -53,7 +64,17 @@ function Movies(props) {
   function updateFilteredCards(cards, searchText) {
     const filteredCards = filterBy(cards, searchText);
     setCardsFiltered(filteredCards);
-    setCardsToDisplay(filteredCards.slice(0, pageSize));
+    const displayedCards = filteredCards.slice(0, pageSize);
+    setCardsToDisplay(displayedCards);
+
+    localStorage.setItem(
+      "cards",
+      JSON.stringify({
+        all: cards,
+        filtered: filteredCards,
+        displayed: displayedCards,
+      })
+    );
   }
 
   function handleCardRemove(card) {
@@ -68,13 +89,22 @@ function Movies(props) {
     if (cardsToDisplay.length === cardsFiltered.length) {
       return;
     }
-    setCardsToDisplay([
+    const newCardsToDisplay = [
       ...cardsToDisplay,
       ...cardsFiltered.slice(
         cardsToDisplay.length,
         cardsToDisplay.length + pageSize
       ),
-    ]);
+    ];
+    setCardsToDisplay(newCardsToDisplay);
+    localStorage.setItem(
+      "cards",
+      JSON.stringify({
+        all: cards,
+        filtered: cardsFiltered,
+        displayed: newCardsToDisplay,
+      })
+    );
   }
 
   return (
