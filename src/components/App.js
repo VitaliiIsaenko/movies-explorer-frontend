@@ -13,8 +13,10 @@ import api from "../utils/MainApi";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 function App(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("jwt") !== null);
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("jwt") !== null
+  );
+
   React.useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     console.log(jwt);
@@ -35,10 +37,16 @@ function App(props) {
       });
   }, [isLoggedIn]);
 
-  function handleLogin() {
-   setIsLoggedIn(true);
+  function handleLogin(jwt) {
+    localStorage.setItem("jwt", jwt);
+    setIsLoggedIn(true);
   }
-  
+
+  function handleLogout() {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+  }
+
   return (
     <BrowserRouter>
       <div className="page">
@@ -50,10 +58,10 @@ function App(props) {
             <Register />
           </Route>
           <Route path="/sign-in">
-            <Login onLogin={handleLogin}/>
+            <Login onLogin={handleLogin} />
           </Route>
-          <ProtectedRoute path="/profile" isLoggedIn={isLoggedIn}>
-            <Profile />
+          <ProtectedRoute path="/profile" isLoggedIn={isLoggedIn} >
+            <Profile onLogout={handleLogout}/>
           </ProtectedRoute>
           <ProtectedRoute path="/movies" isLoggedIn={isLoggedIn}>
             <Movies />

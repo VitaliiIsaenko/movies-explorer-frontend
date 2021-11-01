@@ -16,8 +16,7 @@ function Login(props) {
     api
       .login(email, password)
       .then((data) => {
-        localStorage.setItem("jwt", data.token);
-        props.onLogin();
+        props.onLogin(data.token);
         history.push("/movies");
       })
       .catch((e) => console.log(e));
