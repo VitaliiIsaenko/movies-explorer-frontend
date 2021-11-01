@@ -1,10 +1,10 @@
 import "./Preloader.css";
 import "../Button/Button.css";
 
-function Preloader() {
+function Preloader(props) {
   return (
     <section className="preloader">
-      <button type="button" className="button button_type_more-cards">
+      <button onClick={props.onClick} type="button" className="button button_type_more-cards">
         Ещё
       </button>
     </section>

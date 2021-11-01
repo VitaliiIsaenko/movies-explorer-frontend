@@ -1,0 +1,9 @@
+.movies__error{
+    font-family: Inter, "Arial", "Helvetica", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #FF4062;
+    text-align: center;
+}
