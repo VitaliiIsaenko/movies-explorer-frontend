@@ -31,6 +31,27 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
+  login(email, password) {
+    return fetch(`${this._baseUrl}/signin`, {
+      headers: this._headers,
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then(this._checkResponse);
+  }
+
+  getCurrentUser(jwt) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwt}`,
+      },
+      method: "GET",
+    }).then(this._checkResponse);
+  }
+
   _checkResponse(result) {
     if (result.ok) {
       return result.json();
