@@ -5,11 +5,13 @@ import SearchForm from "../SearchForm/SearchForm";
 import "./Movies.css";
 import Preloader from "../Preloader/Preloader";
 import Navigation from "../Navigation/Navigation";
-import api from "../../utils/MoviesApi";
+import moviesApi from "../../utils/MoviesApi";
+import api from "../../utils/MainApi";
 import React, { useEffect } from "react";
 import useWindowDimensions from "../../utils/useWindowDimensionsHook";
 
 function Movies(props) {
+  const [savedCards, setSavedCards] = React.useState([]);
   const [cards, setCards] = React.useState([]);
   const [cardsToDisplay, setCardsToDisplay] = React.useState([]);
   const [cardsFiltered, setCardsFiltered] = React.useState([]);
@@ -22,12 +24,18 @@ function Movies(props) {
   }, [width]);
 
   useEffect(() => {
+    api
+      .getSavedMovies()
+      .then((savedMovies) => {
+        setSavedCards(savedMovies);
+      })
+      .catch((e) => console.log(e));
+
     const savedCardsJson = localStorage.getItem("cards");
     if (savedCardsJson == null) {
       return;
     }
     const savedCards = JSON.parse(savedCardsJson);
-    console.log(savedCards);
     setCards(savedCards.all);
     setCardsFiltered(savedCards.filtered);
     setCardsToDisplay(savedCards.displayed);
@@ -47,12 +55,17 @@ function Movies(props) {
     if (cards.length !== 0) {
       updateFilteredCards(cards, searchText);
     } else {
-      api
+      moviesApi
         .getMovies()
-        .then((result) => {
+        .then((movies) => {
           setError(false);
-          setCards(result);
-          updateFilteredCards(result, searchText);
+
+          movies.forEach((m) => {
+            const savedCard = savedCards.find((sc) => sc.movieId === m.id);
+            m._id = savedCard ? savedCard._id : null;
+          });
+          setCards(movies);
+          updateFilteredCards(movies, searchText);
         })
         .catch((err) => {
           setError(true);
@@ -78,7 +91,15 @@ function Movies(props) {
   }
 
   function handleCardRemove(card) {
-    setCards(cards.filter((c) => c.id !== card.id));
+    setCards(cards.filter((c) => c.movieId !== card.movieId));
+  }
+
+  function handleCardLike(card, isLiked) {
+    if (isLiked) {
+      api.postMovie(card);
+    } else {
+      api.deleteMovie(card._id);
+    }
   }
 
   function filterBy(cards, searchText) {
@@ -120,6 +141,7 @@ function Movies(props) {
           <MoviesCardList
             cards={cardsToDisplay}
             onCardRemove={handleCardRemove}
+            onCardLike={handleCardLike}
           />
         )}
 

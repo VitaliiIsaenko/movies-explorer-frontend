@@ -9,11 +9,7 @@ function MoviesCardList(props) {
   }
 
   function handleCardLike(card, isLiked) {
-    if (isLiked) {
-    api.postMovie(card);
-    } else {
-      api.deleteMovie(card.id);
-    }
+    props.onCardLike(card,isLiked);
   }
 
   return (
@@ -21,7 +17,7 @@ function MoviesCardList(props) {
       <ul className="card-list">
         {props.cards.map((c) => {
           return (
-            <li  key={c.id}>
+            <li key={c.id}>
               <MoviesCard
                 card={c}
                 savedCard={props.savedCards}

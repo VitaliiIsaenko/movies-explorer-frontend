@@ -4,11 +4,35 @@ class MainApi {
     this._baseUrl = options.baseUrl;
   }
 
+  _getMovieRequest(movie) {
+    return {
+      country: movie.country,
+      image: `https://api.nomoreparties.co${movie.image.url}`,
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
+      trailer: movie.trailerLink,
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`
+    };
+  }
+
+  getSavedMovies() {
+    return fetch(`${this._baseUrl}/movies`, {
+      headers: this._headers,
+      method: "GET",
+    }).then(this._checkResponse);
+  }
+
   postMovie(movie) {
+    const movieRequest = this._getMovieRequest(movie);
+
     return fetch(`${this._baseUrl}/movies`, {
       headers: this._headers,
       method: "POST",
-      body: JSON.stringify(movie),
+      body: JSON.stringify(movieRequest),
     }).then(this._checkResponse);
   }
 
@@ -44,10 +68,7 @@ class MainApi {
 
   getCurrentUser(jwt) {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`,
-      },
+      headers: this._headers,
       method: "GET",
     }).then(this._checkResponse);
   }
@@ -64,6 +85,7 @@ const api = new MainApi({
   baseUrl: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
   },
 });
 export default api;

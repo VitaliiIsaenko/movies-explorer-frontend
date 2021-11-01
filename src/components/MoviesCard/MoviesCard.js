@@ -6,7 +6,8 @@ function MoviesCard({ card, savedCard, onCardRemove, onCardLike }) {
 
   function handleLikeClick() {
     setLike(!isLiked);
-    onCardLike(card, isLiked);
+    console.log(card);
+    onCardLike(card, !isLiked);
   }
 
   function handleRemoveClick() {
