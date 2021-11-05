@@ -2,6 +2,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import Footer from "../Footer/Footer";
+import Movies from "../Movies/Movies";
 import { savedCards } from "../../utils/constants";
 import Navigation from "../Navigation/Navigation";
 
@@ -13,7 +14,7 @@ function SavedMovies() {
       </Header>
       <section className="saved-movies">
         <SearchForm />
-        <MoviesCardList cards={savedCards} savedCards={true} />
+        <Movies savedCards={true} />
       </section>
       <Footer />
     </>

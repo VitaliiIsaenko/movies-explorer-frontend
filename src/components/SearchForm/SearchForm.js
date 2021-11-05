@@ -6,7 +6,7 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
   const [shortMoviesOnly, setShortMoviesOnly] = React.useState(false);
-  const [searchText, setSearchText] = React.useState("");
+  const [searchText, setSearchText] = React.useState(props.search);
   function handleFilterChange(value) {
     setShortMoviesOnly(value);
   }
