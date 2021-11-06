@@ -19,7 +19,6 @@ function App(props) {
 
   React.useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    console.log(jwt);
     if (!jwt) {
       setIsLoggedIn(false);
       return;
@@ -28,7 +27,6 @@ function App(props) {
     api
       .getCurrentUser(jwt)
       .then((result) => {
-        console.log(result);
         setIsLoggedIn(true);
       })
       .catch((err) => {

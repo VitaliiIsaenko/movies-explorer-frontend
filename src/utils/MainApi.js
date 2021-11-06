@@ -15,22 +15,38 @@ class MainApi {
       trailer: movie.trailerLink,
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
-      thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`
+      thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
+      movieId: movie.id,
     };
   }
 
   getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
       method: "GET",
-    }).then(this._checkResponse);
+    })
+      .then(this._checkResponse)
+      .then((movies) =>
+        movies.map((m) => {
+          m.id = m.movieId;
+          m.name = m.nameRU;
+          m.img = m.image;
+          return m;
+        })
+      );
   }
 
   postMovie(movie) {
     const movieRequest = this._getMovieRequest(movie);
 
     return fetch(`${this._baseUrl}/movies`, {
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
       method: "POST",
       body: JSON.stringify(movieRequest),
     }).then(this._checkResponse);
@@ -38,7 +54,10 @@ class MainApi {
 
   deleteMovie(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
       method: "DELETE",
     }).then(this._checkResponse);
   }
@@ -66,9 +85,12 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
-  getCurrentUser(jwt) {
+  getCurrentUser() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
       method: "GET",
     }).then(this._checkResponse);
   }
@@ -85,7 +107,6 @@ const api = new MainApi({
   baseUrl: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
   },
 });
 export default api;

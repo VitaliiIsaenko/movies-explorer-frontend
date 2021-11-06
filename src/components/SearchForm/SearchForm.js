@@ -12,7 +12,6 @@ function SearchForm(props) {
   }
 
   function handleSearchTextChange(e) {
-    console.log(e.target.value);
     setSearchText(e.target.value);
   }
 
