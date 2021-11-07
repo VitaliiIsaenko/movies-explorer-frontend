@@ -12,9 +12,7 @@ function Movies() {
         <Navigation />
       </Header>
 
-      <section className="movies">
-        <MoviesList/>
-      </section>
+      <MoviesList />
 
       <Footer />
     </>

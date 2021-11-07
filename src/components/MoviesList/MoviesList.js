@@ -9,8 +9,6 @@ import MovieCard from "../MovieCard/MovieCard";
 import { getColumnSize } from "../../utils/moviesPagination";
 import { filterBy } from "../../utils/moviesFilter";
 
-//todo: filter saved cards by user
-
 //todo: they want:
 // Для фильтрации данных и отображения нужных фильмов вы можете создать набор утилитарных функций
 // или отдельный компонент. Мы не рекомендуем хранить эту логику непосредственно в компоненте MoviesCardList или схожих компонентах.
@@ -82,14 +80,18 @@ function MoviesList({ inSaved }) {
   }, [savedMovies, currentPage, pageSize, filteredMovies, inSaved]);
 
   function handleSearch(search, onlyShort) {
-    setOnlyShort(onlyShort);
-    localStorage.setItem("onlyShort", onlyShort);
+    handleFilterChange(onlyShort);
 
     setSearch(search);
     localStorage.setItem("search", search);
 
     setCurrentPage(pageSize);
     localStorage.setItem("currentPage", pageSize);
+  }
+
+  function handleFilterChange(onlyShort) {
+    setOnlyShort(onlyShort);
+    localStorage.setItem("onlyShort", onlyShort);
   }
 
   function handleMovieDislike(movie) {
@@ -138,7 +140,7 @@ function MoviesList({ inSaved }) {
 
   return (
     <>
-      <SearchForm onSubmit={handleSearch} search={search} onlyShort={onlyShort} />
+      <SearchForm onSubmit={handleSearch} search={search} onlyShort={onlyShort} onFilterChange={handleFilterChange} />
 
       {!error && shownMovies.length !== 0 && (
         <section className="cards">

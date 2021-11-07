@@ -8,9 +8,10 @@ function SearchForm(props) {
   const [searchText, setSearchText] = React.useState(props.search);
   const [onlyShort, setOnlyShort] = React.useState(props.onlyShort);
 
-function handleFilterChange(isOn) {
+  function handleFilterChange(isOn) {
     setOnlyShort(isOn);
-}
+    props.onFilterChange(isOn);
+  }
 
   function handleSearchTextChange(e) {
     setSearchText(e.target.value);
@@ -23,17 +24,25 @@ function handleFilterChange(isOn) {
 
   return (
     <section className="search">
-      <form className="search__form"
-        onSubmit={handleSubmit}>
+      <form className="search__form" onSubmit={handleSubmit}>
         <div className="search__container">
-          <input type="text" className="search__bar" placeholder="Фильм" required   
-          value={searchText} 
-          onChange={handleSearchTextChange}      />
+          <input
+            type="text"
+            className="search__bar"
+            placeholder="Фильм"
+            required
+            value={searchText}
+            onChange={handleSearchTextChange}
+          />
           <button type="submit" className="button button_type_search">
             Найти
           </button>
         </div>
-        <FilterCheckbox onFilterChange={handleFilterChange} text="Короткометражки" isOn={props.onlyShort}/>
+        <FilterCheckbox
+          onFilterChange={handleFilterChange}
+          text="Короткометражки"
+          isOn={props.onlyShort}
+        />
       </form>
       <Delimiter />
     </section>

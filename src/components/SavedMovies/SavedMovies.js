@@ -1,9 +1,17 @@
 import MoviesList from "../MoviesList/MoviesList";
+import Header from "../Header/Header";
+import Navigation from "../Navigation/Navigation";
+import Footer from "../Footer/Footer";
 
 function SavedMovies() {
   return (
     <>
-      <MoviesList inSaved={true}/>
+      <Header>
+        <Navigation />
+      </Header>
+
+      <MoviesList inSaved={true} />
+      <Footer />
     </>
   );
 }

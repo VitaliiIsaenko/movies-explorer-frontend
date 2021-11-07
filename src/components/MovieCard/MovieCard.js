@@ -33,6 +33,7 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
   }
 
   return (
+    //todo: make clicking on card lead to trailer
     <div className="card">
       <img className="card__picture" src={card.img} alt="Фото фильма" />
 
