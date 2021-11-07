@@ -5,9 +5,13 @@ import TextInput from "../TextInput/TextInput";
 import { useHistory, Link } from "react-router-dom";
 import api from "../../utils/MainApi";
 import React from "react";
+import { useFormWithValidation } from "../../utils/formValidation";
 
 function Register() {
   const history = useHistory();
+  const form = useFormWithValidation();
+
+  const [error, setError] = React.useState("");
 
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -46,13 +50,19 @@ function Register() {
             buttonText="Зарегестрироваться"
             onSubmit={handleRegistration}
             className="auth__form"
-          >
+          isValid={form.isValid}
+          error={error}
+        >
             <TextInput
               label="Имя"
               type="text"
               id="name"
               value={name}
               onChange={handleNameChange}
+              required
+              minLength="2"
+              maxLength="20"
+              validationMessage={form.errors['name']}
             />
             <TextInput
               label="E-mail"
@@ -60,6 +70,8 @@ function Register() {
               id="email"
               value={email}
               onChange={handleEmailChange}
+              required
+              validationMessage={form.errors['email']}
             />
             <TextInput
               label="Пароль"
@@ -67,6 +79,8 @@ function Register() {
               id="password"
               value={password}
               onChange={handlePasswordChange}
+              required
+              validationMessage={form.errors['password']}
             />
           </Form>
 

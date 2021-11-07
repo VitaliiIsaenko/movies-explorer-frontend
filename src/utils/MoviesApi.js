@@ -23,7 +23,7 @@ class MoviesApi {
     if (result.ok) {
       return result.json();
     }
-    return Promise.reject("API returned an error");
+    return Promise.reject({ message: "Что-то пошло не так..." });
   }
 }
 

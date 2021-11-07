@@ -193,6 +193,11 @@
   width: 100%;
 }
 
+.button_type_submit:disabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 1279px) {
   .button_type_burger {
     display: initial;
@@ -227,9 +232,5 @@
   .button_type_close {
     right: 13px;
     top: 13px;
-  }
-
-  .button_type_submit {
-    /* margin-top: auto; */
   }
 }

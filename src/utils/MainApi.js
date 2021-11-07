@@ -34,7 +34,6 @@ class MainApi {
           m.id = m.movieId;
           m.name = m.nameRU;
           m.img = m.image;
-
           return m;
         })
       );
@@ -104,16 +103,24 @@ class MainApi {
       },
       method: "PATCH",
       body: JSON.stringify({
-        name, email
+        name,
+        email,
       }),
     }).then(this._checkResponse);
   }
 
   _checkResponse(result) {
-    if (result.ok) {
-      return result.json();
-    }
-    return Promise.reject("API returned an error");
+    return result.json().then((json) => {
+      if (result.ok) {
+        return json;
+      }
+
+      if (result.status >= 400 && result.status < 500) {
+        return Promise.reject(json);
+      }
+
+      return Promise.reject("Произошла ошибка на сервере");
+    });
   }
 }
 

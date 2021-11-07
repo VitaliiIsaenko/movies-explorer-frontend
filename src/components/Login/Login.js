@@ -5,10 +5,13 @@ import TextInput from "../TextInput/TextInput";
 import { Link, useHistory } from "react-router-dom";
 import api from "../../utils/MainApi";
 import React from "react";
+import { useFormWithValidation } from "../../utils/formValidation";
 
 function Login(props) {
   const history = useHistory();
+  const form = useFormWithValidation();
 
+  const [error, setError] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -16,18 +19,27 @@ function Login(props) {
     api
       .login(email, password)
       .then((data) => {
+        setError("");
         props.onLogin(data.token);
         history.push("/movies");
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        setError(e.message);
+      });
   }
 
   function handleEmailChange(e) {
+    setError("");
+
     setEmail(e.target.value);
+    form.handleChange(e);
   }
 
   function handlePasswordChange(e) {
+    setError("");
+
     setPassword(e.target.value);
+    form.handleChange(e);
   }
 
   return (
@@ -41,20 +53,29 @@ function Login(props) {
           buttonText="Войти"
           onSubmit={handleLogin}
           className="auth__form"
+          error={error}
+          isValid={form.isValid}
         >
           <TextInput
             label="E-mail"
             type="email"
             id="email"
+            name="email"
             value={email}
             onChange={handleEmailChange}
+            required
+            error={form.errors["email"]}
           />
           <TextInput
             label="Пароль"
             type="password"
             id="password"
+            name="password"
             value={password}
             onChange={handlePasswordChange}
+            required
+            minLength={6}
+            error={form.errors["password"]}
           />
         </Form>
 

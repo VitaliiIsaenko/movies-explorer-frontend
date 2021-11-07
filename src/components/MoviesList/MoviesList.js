@@ -8,6 +8,7 @@ import Preloader from "../Preloader/Preloader";
 import MovieCard from "../MovieCard/MovieCard";
 import { getColumnSize } from "../../utils/moviesPagination";
 import { filterBy } from "../../utils/moviesFilter";
+import Error from "../Error/Error";
 
 //todo: they want:
 // Для фильтрации данных и отображения нужных фильмов вы можете создать набор утилитарных функций
@@ -140,7 +141,12 @@ function MoviesList({ inSaved }) {
 
   return (
     <>
-      <SearchForm onSubmit={handleSearch} search={search} onlyShort={onlyShort} onFilterChange={handleFilterChange} />
+      <SearchForm
+        onSubmit={handleSearch}
+        search={search}
+        onlyShort={onlyShort}
+        onFilterChange={handleFilterChange}
+      />
 
       {!error && shownMovies.length !== 0 && (
         <section className="cards">
@@ -166,7 +172,7 @@ function MoviesList({ inSaved }) {
       )}
 
       {!error && filteredMovies.length === 0 && (
-        <p className="movies__error">Ничего не найдено</p>
+        <Error text="Ничего не найдено" />
       )}
 
       {error && (
