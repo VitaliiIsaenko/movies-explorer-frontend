@@ -11,11 +11,14 @@ import React from "react";
 import { useState } from "react/cjs/react.development";
 import api from "../utils/MainApi";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import ProfileEdit from "./ProfileEdit/ProfileEdit";
 
 function App(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("jwt") !== null
   );
+  const [currentUser, setCurrentUser] = useState(null);
 
   React.useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -27,6 +30,7 @@ function App(props) {
     api
       .getCurrentUser(jwt)
       .then((result) => {
+        setCurrentUser(result);
         setIsLoggedIn(true);
       })
       .catch((err) => {
@@ -47,31 +51,36 @@ function App(props) {
 
   return (
     <BrowserRouter>
-      <div className="page">
-        <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
-          <Route path="/sign-up">
-            <Register />
-          </Route>
-          <Route path="/sign-in">
-            <Login onLogin={handleLogin} />
-          </Route>
-          <ProtectedRoute path="/profile" isLoggedIn={isLoggedIn} >
-            <Profile onLogout={handleLogout}/>
-          </ProtectedRoute>
-          <ProtectedRoute path="/movies" isLoggedIn={isLoggedIn}>
-            <Movies />
-          </ProtectedRoute>
-          <ProtectedRoute path="/saved-movies" isLoggedIn={isLoggedIn}>
-            <SavedMovies />
-          </ProtectedRoute>
-          <Route path="*">
-            <PageNotFound />
-          </Route>
-        </Switch>
-      </div>
+      <CurrentUserContext.Provider value={currentUser}>
+        <div className="page">
+          <Switch>
+            <Route exact path="/">
+              <Main />
+            </Route>
+            <Route path="/sign-up">
+              <Register />
+            </Route>
+            <Route path="/sign-in">
+              <Login onLogin={handleLogin} />
+            </Route>
+            <ProtectedRoute path="/profile" isLoggedIn={isLoggedIn}>
+              <Profile onLogout={handleLogout} />
+            </ProtectedRoute>
+            <ProtectedRoute path="/profile-edit" isLoggedIn={isLoggedIn}>
+              <ProfileEdit />
+            </ProtectedRoute>
+            <ProtectedRoute path="/movies" isLoggedIn={isLoggedIn}>
+              <Movies />
+            </ProtectedRoute>
+            <ProtectedRoute path="/saved-movies" isLoggedIn={isLoggedIn}>
+              <SavedMovies />
+            </ProtectedRoute>
+            <Route path="*">
+              <PageNotFound />
+            </Route>
+          </Switch>
+        </div>
+      </CurrentUserContext.Provider>
     </BrowserRouter>
   );
 }

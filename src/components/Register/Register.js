@@ -42,7 +42,7 @@ function Register() {
 
         <div className="auth__form-container">
           <Form
-            name="auth"
+            name="register"
             buttonText="Зарегестрироваться"
             onSubmit={handleRegistration}
             className="auth__form"

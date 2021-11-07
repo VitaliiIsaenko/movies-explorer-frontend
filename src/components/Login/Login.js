@@ -37,7 +37,7 @@ function Login(props) {
 
       <div className="auth__form-container">
         <Form
-          name="auth"
+          name="login"
           buttonText="Войти"
           onSubmit={handleLogin}
           className="auth__form"

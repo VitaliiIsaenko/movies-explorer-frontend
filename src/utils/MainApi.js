@@ -96,6 +96,19 @@ class MainApi {
     }).then(this._checkResponse);
   }
 
+  editCurrentUser(name, email) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        name, email
+      }),
+    }).then(this._checkResponse);
+  }
+
   _checkResponse(result) {
     if (result.ok) {
       return result.json();
