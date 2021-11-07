@@ -148,8 +148,8 @@ function MoviesList({ inSaved }) {
         onFilterChange={handleFilterChange}
       />
 
-      {!error && shownMovies.length !== 0 && (
-        <section className="cards">
+      <section className="cards">
+        {!error && shownMovies.length !== 0 && (
           <ul className="card-list">
             {shownMovies.map((c) => {
               return (
@@ -164,23 +164,24 @@ function MoviesList({ inSaved }) {
               );
             })}
           </ul>
-        </section>
-      )}
+        )}
+        {shownMovies.length < filteredMovies.length && !inSaved && (
+          <Preloader onClick={handlePreloaderClick} />
+        )}
 
-      {shownMovies.length < filteredMovies.length && !inSaved && (
-        <Preloader onClick={handlePreloaderClick} />
-      )}
+        <div class="card__errors">
+          {!error && filteredMovies.length === 0 && (
+            <Error text="Ничего не найдено" />
+          )}
 
-      {!error && filteredMovies.length === 0 && (
-        <Error text="Ничего не найдено" />
-      )}
-
-      {error && (
-        <p className="movies__error">
-          Во время запроса произошла ошибка. Возможно, проблема с соединением
-          или сервер недоступен. Подождите немного и попробуйте ещё раз
-        </p>
-      )}
+          {error && (
+            <Error
+              text="Во время запроса произошла ошибка. Возможно, проблема с соединением
+          или сервер недоступен. Подождите немного и попробуйте ещё раз"
+            />
+          )}
+        </div>
+      </section>
     </>
   );
 }

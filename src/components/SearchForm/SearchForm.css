@@ -30,10 +30,8 @@
   outline: 1px solid #e6e6e6;
 }
 .search__bar:invalid:focus {
-  outline: 1px solid red;
+  background-color: #ff00330e;
 }
-
-
 
 @media screen and (max-width: 1279px) {
   .search {

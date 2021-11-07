@@ -31,3 +31,6 @@
     outline:none;
 }
 
+.text-input__input_invalid {
+  background-color: #ff00330e;
+}

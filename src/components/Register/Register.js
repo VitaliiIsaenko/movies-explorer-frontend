@@ -19,22 +19,33 @@ function Register() {
 
   function handleNameChange(e) {
     setName(e.target.value);
+    handleFormChange(e);
+  }
+
+  function handleFormChange(e) {
+    setError("");
+    form.handleChange(e);
+    console.log(form.errors);
   }
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
+    handleFormChange(e);
   }
 
   function handlePasswordChange(e) {
     setPassword(e.target.value);
+    handleFormChange(e);
   }
   function handleRegistration() {
     api
       .register(name, email, password)
       .then(() => {
+        setError("");
         history.push("/sign-in");
       })
       .catch((e) => {
+        setError(e.message);
         console.log(e);
       });
   }
@@ -50,37 +61,42 @@ function Register() {
             buttonText="Зарегестрироваться"
             onSubmit={handleRegistration}
             className="auth__form"
-          isValid={form.isValid}
-          error={error}
-        >
+            isValid={form.isValid}
+            error={error}
+          >
             <TextInput
               label="Имя"
               type="text"
               id="name"
+              name="name"
+
               value={name}
               onChange={handleNameChange}
               required
               minLength="2"
               maxLength="20"
-              validationMessage={form.errors['name']}
+              error={form.errors["name"]}
             />
             <TextInput
               label="E-mail"
+              name="email"
               type="email"
               id="email"
               value={email}
               onChange={handleEmailChange}
               required
-              validationMessage={form.errors['email']}
+              error={form.errors["email"]}
             />
             <TextInput
               label="Пароль"
+              name="password"
               type="password"
               id="password"
+              minLength="6"
               value={password}
               onChange={handlePasswordChange}
               required
-              validationMessage={form.errors['password']}
+              error={form.errors["password"]}
             />
           </Form>
 
