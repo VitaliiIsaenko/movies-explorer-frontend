@@ -5,7 +5,7 @@ import Navigation from "../Navigation/Navigation";
 import React from "react";
 import MoviesList from "../MoviesList/MoviesList";
 
-function Movies(props) {
+function Movies() {
   return (
     <>
       <Header>

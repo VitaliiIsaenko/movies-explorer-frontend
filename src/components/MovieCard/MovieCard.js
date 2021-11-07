@@ -26,6 +26,11 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
     }
   }
 
+  function durationText(duratinMinutes) {
+    const hours = Math.floor(duratinMinutes / 60);
+    const minutes = duratinMinutes % 60;
+    return `${hours}ч ${minutes}м`.replace("0ч ", "");
+  }
 
   return (
     <div className="card">
@@ -48,7 +53,7 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
           ></button>
         </div>
 
-        <p className="card__duration">{card.duration}</p>
+        <p className="card__duration">{durationText(card.duration)}</p>
       </div>
     </div>
   );

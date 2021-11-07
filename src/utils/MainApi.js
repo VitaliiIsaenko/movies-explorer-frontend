@@ -34,6 +34,7 @@ class MainApi {
           m.id = m.movieId;
           m.name = m.nameRU;
           m.img = m.image;
+
           return m;
         })
       );

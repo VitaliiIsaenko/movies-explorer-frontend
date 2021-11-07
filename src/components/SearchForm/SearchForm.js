@@ -5,11 +5,12 @@ import Delimiter from "../Delimiter/Delimiter";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
-  const [shortMoviesOnly, setShortMoviesOnly] = React.useState(false);
   const [searchText, setSearchText] = React.useState(props.search);
-  function handleFilterChange(value) {
-    setShortMoviesOnly(value);
-  }
+  const [onlyShort, setOnlyShort] = React.useState(props.onlyShort);
+
+function handleFilterChange(isOn) {
+    setOnlyShort(isOn);
+}
 
   function handleSearchTextChange(e) {
     setSearchText(e.target.value);
@@ -17,7 +18,7 @@ function SearchForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onSubmit(searchText);
+    props.onSubmit(searchText, onlyShort);
   }
 
   return (
@@ -32,7 +33,7 @@ function SearchForm(props) {
             Найти
           </button>
         </div>
-        <FilterCheckbox onFilterChange={handleFilterChange} text="Короткометражки"/>
+        <FilterCheckbox onFilterChange={handleFilterChange} text="Короткометражки" isOn={props.onlyShort}/>
       </form>
       <Delimiter />
     </section>

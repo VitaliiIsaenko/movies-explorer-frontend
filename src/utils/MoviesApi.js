@@ -13,6 +13,7 @@ class MoviesApi {
         movies.map((m) => {
           m.img = `${this._baseUrl}${m.image.url}`;
           m.name = m.nameRU;
+
           return m;
         })
       );

@@ -6,7 +6,14 @@ import useWindowDimensions from "../../utils/useWindowDimensionsHook";
 import "./MoviesList.css";
 import Preloader from "../Preloader/Preloader";
 import MovieCard from "../MovieCard/MovieCard";
+import { getColumnSize } from "../../utils/moviesPagination";
+import { filterBy } from "../../utils/moviesFilter";
 
+//todo: filter saved cards by user
+
+//todo: they want:
+// Для фильтрации данных и отображения нужных фильмов вы можете создать набор утилитарных функций
+// или отдельный компонент. Мы не рекомендуем хранить эту логику непосредственно в компоненте MoviesCardList или схожих компонентах.
 function MoviesList({ inSaved }) {
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [movies, setMovies] = React.useState([]);
@@ -25,31 +32,47 @@ function MoviesList({ inSaved }) {
   const [search, setSearch] = React.useState(
     localStorage.getItem("search") || ""
   );
-
-  const getPageSize = useCallback(() => {
-    if (width < 633) {
-      return 1;
-    } else if (width < 1136) {
-      return 2;
-    }
-    return 3;
-  }, [width]);
+  const [onlyShort, setOnlyShort] = React.useState(
+    localStorage.getItem("onlyShort") === "true"
+  );
 
   useEffect(() => {
-    setPageSize(getPageSize());
-  }, [getPageSize]);
+    Promise.all([api.getSavedMovies(), moviesApi.getMovies()])
+      .then(([savedMovies, movies]) => {
+        setError(false);
+        setSavedMovies(savedMovies);
+
+        movies.forEach((m) => {
+          const savedMovie = savedMovies.find((sc) => sc.id === m.id);
+          m._id = savedMovie ? savedMovie._id : null;
+        });
+
+        setMovies(movies);
+      })
+      .catch((err) => {
+        setError(true);
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    setPageSize(getColumnSize(width));
+  }, [width]);
 
   useEffect(() => {
     if (!search) {
       return;
     }
 
-    const filteredMovies = filterBy(inSaved ? savedMovies : movies, search);
+    const filteredMovies = filterBy(
+      inSaved ? savedMovies : movies,
+      search,
+      onlyShort
+    );
     setMoviesFiltered(filteredMovies);
-  }, [movies, search, savedMovies, inSaved]);
+  }, [movies, search, onlyShort, savedMovies, inSaved]);
 
   useEffect(() => {
-    //todo: consider extracting onlySaved case from this useEffect
     if (inSaved) {
       setShownMovies(filteredMovies);
     } else {
@@ -58,29 +81,15 @@ function MoviesList({ inSaved }) {
     }
   }, [savedMovies, currentPage, pageSize, filteredMovies, inSaved]);
 
-  useEffect(() => {
-    Promise.all([api.getSavedMovies(), moviesApi.getMovies()])
-      .then(([savedMovies, movies]) => {
-        setError(false);
-        setSavedMovies(savedMovies);
-        setMovies(movies);
+  function handleSearch(search, onlyShort) {
+    setOnlyShort(onlyShort);
+    localStorage.setItem("onlyShort", onlyShort);
 
-        //todo: extract to reuse on like/dislike
-        movies.forEach((m) => {
-          const savedMovie = savedMovies.find((sc) => sc.id === m.id);
-          m._id = savedMovie ? savedMovie._id : null;
-        });
-      })
-      .catch((err) => {
-        setError(true);
-        console.log(err);
-      });
-  }, []);
-
-  function handleSearch(search) {
     setSearch(search);
     localStorage.setItem("search", search);
+
     setCurrentPage(pageSize);
+    localStorage.setItem("currentPage", pageSize);
   }
 
   function handleMovieDislike(movie) {
@@ -118,10 +127,6 @@ function MoviesList({ inSaved }) {
     setSavedMovies(savedMovies.filter((c) => c._id !== null));
   }
 
-  function filterBy(movies, searchText) {
-    return movies.filter((m) => m.name.includes(searchText.trim()));
-  }
-
   function handlePreloaderClick() {
     if (shownMovies.length === filteredMovies.length) {
       return;
@@ -133,7 +138,7 @@ function MoviesList({ inSaved }) {
 
   return (
     <>
-      <SearchForm onSubmit={handleSearch} search={search} />
+      <SearchForm onSubmit={handleSearch} search={search} onlyShort={onlyShort} />
 
       {!error && shownMovies.length !== 0 && (
         <section className="cards">
