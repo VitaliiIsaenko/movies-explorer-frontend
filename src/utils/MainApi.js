@@ -125,7 +125,7 @@ class MainApi {
 }
 
 const api = new MainApi({
-  baseUrl: "http://localhost:3001",
+  baseUrl: "https://api.movies-explorer-pro.nomoredomains.club",
   headers: {
     "Content-Type": "application/json",
   },
