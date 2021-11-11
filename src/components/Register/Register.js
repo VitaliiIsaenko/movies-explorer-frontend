@@ -4,11 +4,13 @@ import Form from "../Form/Form";
 import TextInput from "../TextInput/TextInput";
 import { useHistory, Link } from "react-router-dom";
 import api from "../../utils/MainApi";
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormWithValidation } from "../../utils/formValidation";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Register() {
+function Register(props) {
   const history = useHistory();
+  const currentUser = React.useContext(CurrentUserContext);
   const form = useFormWithValidation();
 
   const [error, setError] = React.useState("");
@@ -16,6 +18,12 @@ function Register() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  useEffect(() => {
+    if (currentUser !== null) {
+      history.push("/");
+    }
+  }, [history, currentUser]);
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -25,7 +33,6 @@ function Register() {
   function handleFormChange(e) {
     setError("");
     form.handleChange(e);
-    console.log(form.errors);
   }
 
   function handleEmailChange(e) {
@@ -42,7 +49,16 @@ function Register() {
       .register(name, email, password)
       .then(() => {
         setError("");
-        history.push("/sign-in");
+        api
+          .login(email, password)
+          .then((data) => {
+            setError("");
+            props.onLogin(data.token);
+            history.push("/movies");
+          })
+          .catch((e) => {
+            setError(e.message);
+          });
       })
       .catch((e) => {
         setError(e.message);
@@ -69,7 +85,6 @@ function Register() {
               type="text"
               id="name"
               name="name"
-
               value={name}
               onChange={handleNameChange}
               required

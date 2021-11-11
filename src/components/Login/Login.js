@@ -4,7 +4,7 @@ import Form from "../Form/Form";
 import TextInput from "../TextInput/TextInput";
 import { Link, useHistory } from "react-router-dom";
 import api from "../../utils/MainApi";
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormWithValidation } from "../../utils/formValidation";
 
 function Login(props) {
@@ -14,6 +14,12 @@ function Login(props) {
   const [error, setError] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      history.push("/");
+    }
+  }, [props.isLoggedIn, history]);
 
   function handleLogin() {
     api

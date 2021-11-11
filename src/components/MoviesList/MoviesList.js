@@ -1,7 +1,7 @@
 import SearchForm from "../SearchForm/SearchForm";
 import moviesApi from "../../utils/MoviesApi";
 import api from "../../utils/MainApi";
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import useWindowDimensions from "../../utils/useWindowDimensionsHook";
 import "./MoviesList.css";
 import Preloader from "../Preloader/Preloader";
@@ -10,9 +10,6 @@ import { getColumnSize } from "../../utils/moviesPagination";
 import { filterBy } from "../../utils/moviesFilter";
 import Error from "../Error/Error";
 
-//todo: they want:
-// Для фильтрации данных и отображения нужных фильмов вы можете создать набор утилитарных функций
-// или отдельный компонент. Мы не рекомендуем хранить эту логику непосредственно в компоненте MoviesCardList или схожих компонентах.
 function MoviesList({ inSaved }) {
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [movies, setMovies] = React.useState([]);
@@ -35,8 +32,25 @@ function MoviesList({ inSaved }) {
     localStorage.getItem("onlyShort") === "true"
   );
 
+  function getMovies() {
+    return new Promise((resolve, reject) => {
+      const movies = JSON.parse(localStorage.getItem("movies"));
+      if (movies) {
+        resolve(movies);
+      } else {
+        moviesApi
+          .getMovies()
+          .then((data) => {
+            localStorage.setItem("movies", JSON.stringify(data));
+            resolve(data);
+          })
+          .catch((e) => reject(e));
+      }
+    });
+  }
+
   useEffect(() => {
-    Promise.all([api.getSavedMovies(), moviesApi.getMovies()])
+    Promise.all([api.getSavedMovies(), getMovies()])
       .then(([savedMovies, movies]) => {
         setError(false);
         setSavedMovies(savedMovies);
@@ -170,7 +184,7 @@ function MoviesList({ inSaved }) {
         )}
 
         <div class="card__errors">
-          {!error && filteredMovies.length === 0 && (
+          {!error && search.length !== 0 && filteredMovies.length === 0 && (
             <Error text="Ничего не найдено" />
           )}
 

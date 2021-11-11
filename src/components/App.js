@@ -54,13 +54,13 @@ function App(props) {
         <div className="page">
           <Switch>
             <Route exact path="/">
-              <Main />
+              <Main isLoggedIn={isLoggedIn} />
             </Route>
             <Route path="/sign-up">
-              <Register />
+              <Register onLogin={handleLogin} />
             </Route>
             <Route path="/sign-in">
-              <Login onLogin={handleLogin} />
+              <Login onLogin={handleLogin} isLoggedIn={isLoggedIn} />
             </Route>
             <ProtectedRoute path="/profile" isLoggedIn={isLoggedIn}>
               <Profile onLogout={handleLogout} />

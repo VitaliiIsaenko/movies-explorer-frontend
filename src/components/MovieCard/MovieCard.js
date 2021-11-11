@@ -18,7 +18,10 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
     onCardDislike(card);
   }
 
-  function handleCardActionClick() {
+  function handleCardActionClick(e) {
+    e.stopPropagation();
+    console.log(e.target);
+    console.log(e.currentTarget);
     if (card._id === null) {
       handleCardLike();
     } else {
@@ -32,9 +35,13 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
     return `${hours}ч ${minutes}м`.replace("0ч ", "");
   }
 
+  function handleClick() {
+    window.location.replace(card.trailerLink);
+  }
+
   return (
     //todo: make clicking on card lead to trailer
-    <div className="card">
+    <button className="card" onClick={handleClick}>
       <img className="card__picture" src={card.img} alt="Фото фильма" />
 
       <div className="card__bar">
@@ -56,7 +63,7 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
 
         <p className="card__duration">{durationText(card.duration)}</p>
       </div>
-    </div>
+    </button>
   );
 }
 
