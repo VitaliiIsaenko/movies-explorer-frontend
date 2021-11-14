@@ -6,6 +6,7 @@
   flex-direction: column;
   width: 364px;
   height: 281px;
+  text-decoration: none;
 }
 
 .card__bar {
@@ -33,8 +34,9 @@
   line-height: 16px;
   margin: 0;
   white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
 }
 
 .card__action {

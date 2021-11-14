@@ -66,64 +66,62 @@ function Register(props) {
       });
   }
   return (
-    <>
-      <section className="auth">
-        <img className="auth__logo" src={logo} alt="логотип" />
-        <h1 className="auth__welcome">Добро пожаловать!</h1>
+    <section className="auth">
+      <img className="auth__logo" src={logo} alt="логотип" />
+      <h1 className="auth__welcome">Добро пожаловать!</h1>
 
-        <div className="auth__form-container">
-          <Form
-            name="register"
-            buttonText="Зарегестрироваться"
-            onSubmit={handleRegistration}
-            className="auth__form"
-            isValid={form.isValid}
-            error={error}
-          >
-            <TextInput
-              label="Имя"
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={handleNameChange}
-              required
-              minLength="2"
-              maxLength="20"
-              error={form.errors["name"]}
-            />
-            <TextInput
-              label="E-mail"
-              name="email"
-              type="email"
-              id="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-              error={form.errors["email"]}
-            />
-            <TextInput
-              label="Пароль"
-              name="password"
-              type="password"
-              id="password"
-              minLength="6"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-              error={form.errors["password"]}
-            />
-          </Form>
+      <div className="auth__form-container">
+        <Form
+          name="register"
+          buttonText="Зарегестрироваться"
+          onSubmit={handleRegistration}
+          className="auth__form"
+          isValid={form.isValid}
+          error={error}
+        >
+          <TextInput
+            label="Имя"
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+            required
+            minLength="2"
+            maxLength="20"
+            error={form.errors["name"]}
+          />
+          <TextInput
+            label="E-mail"
+            name="email"
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            required
+            error={form.errors["email"]}
+          />
+          <TextInput
+            label="Пароль"
+            name="password"
+            type="password"
+            id="password"
+            minLength="6"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+            error={form.errors["password"]}
+          />
+        </Form>
 
-          <div className="auth__alternative">
-            <p className="auth__capture">Уже зарегестрированы?</p>
-            <Link className="button button_type_cta" to="sign-in">
-              Войти
-            </Link>
-          </div>
+        <div className="auth__alternative">
+          <p className="auth__capture">Уже зарегестрированы?</p>
+          <Link className="button button_type_cta" to="sign-in">
+            Войти
+          </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 

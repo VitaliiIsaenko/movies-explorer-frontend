@@ -1,5 +1,4 @@
 import "./Form.css";
-import Error from "../Error/Error";
 import SubmitButton from "../SubmitButton/SubmitButton";
 
 function Form(props) {

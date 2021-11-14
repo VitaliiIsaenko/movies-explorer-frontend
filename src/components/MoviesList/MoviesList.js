@@ -183,7 +183,7 @@ function MoviesList({ inSaved }) {
           <Preloader onClick={handlePreloaderClick} />
         )}
 
-        <div class="card__errors">
+        <div className="card__errors">
           {!error && search.length !== 0 && filteredMovies.length === 0 && (
             <Error text="Ничего не найдено" />
           )}
