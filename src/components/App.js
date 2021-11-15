@@ -45,6 +45,7 @@ function App(props) {
 
   function handleLogout() {
     localStorage.removeItem("jwt");
+    setCurrentUser(null);
     setIsLoggedIn(false);
   }
 

@@ -17,7 +17,7 @@ function Login(props) {
 
   useEffect(() => {
     if (props.isLoggedIn) {
-      history.push("/");
+      history.push("/movies");
     }
   }, [props.isLoggedIn, history]);
 
@@ -27,7 +27,6 @@ function Login(props) {
       .then((data) => {
         setError("");
         props.onLogin(data.token);
-        history.push("/movies");
       })
       .catch((e) => {
         setError(e.message);

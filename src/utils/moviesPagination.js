@@ -1,10 +1,10 @@
-import { columnSettings } from "./constants";
+import config from "../config.json";
 
 export function getColumnSize(width) {
   if (width < 633) {
-    return columnSettings["small"];
+    return config.SMALL_COLUMNS;
   } else if (width < 1136) {
-    return columnSettings["middle"];
+    return config.MIDDLE_COLUMNS;
   }
-  return columnSettings["large"];
+  return config.LARGE_COLUMNS;
 }

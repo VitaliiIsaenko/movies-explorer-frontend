@@ -36,7 +36,12 @@ function MovieCard({ card, inSaved, onCardDislike, onCardLike }) {
   }
 
   return (
-    <a href={card.trailerLink} className="card">
+    <a
+      href={card.trailerLink}
+      className="card"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <img className="card__picture" src={card.img} alt="Фото фильма" />
 
       <div className="card__bar">
