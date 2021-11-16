@@ -4,7 +4,11 @@
   border-radius: 6px;
   display: flex;
   flex-direction: column;
+  width: 364px;
+  height: 281px;
+  text-decoration: none;
 }
+
 .card__bar {
   padding: 9px 16px 16px;
   flex-direction: column;
@@ -17,6 +21,11 @@
   align-items: center;
 }
 
+.card__picture {
+  height: 203px;
+  object-fit: cover;
+}
+
 .card__name {
   font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
@@ -24,7 +33,12 @@
   font-size: 13px;
   line-height: 16px;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
 }
+
 .card__action {
   background-repeat: no-repeat;
   background-position: center;
@@ -35,6 +49,7 @@
   border: none;
   background-color: transparent;
 }
+
 .card__action_type_remove {
   visibility: hidden;
   background-image: url("../../images/remove.svg");
@@ -46,11 +61,13 @@
 
 .card__action_type_like {
   background-image: url("../../images/like.svg");
-  transition: background-image .3s; 
+  transition: background-image 0.3s;
 }
+
 .card__action_type_like-active {
   background-image: url("../../images/like-active.svg");
 }
+
 .card__duration {
   font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
@@ -63,20 +80,28 @@
 
 @media screen and (max-width: 1279px) {
   .card {
-    max-width: 339px;
+    width: 339px;
+    height: 262px;
   }
   .card__bar {
     padding: 8px 14px 14px;
     gap: 7px;
   }
+  .card__picture {
+    height: 190px;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .card {
-    max-width: 300px;
+    width: 300px;
+    height: 237px;
   }
   .card__bar {
     padding: 7px 10px 14px 14px;
     gap: 6px;
+  }
+  .card__picture {
+    height: 168px;
   }
 }

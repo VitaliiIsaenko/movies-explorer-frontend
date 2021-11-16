@@ -1,5 +1,4 @@
 .cards {
-  margin: auto;
   padding: 70px 70px 10px;
 }
 
@@ -11,6 +10,10 @@
   gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(364px, 1fr));
   justify-items: center;
+}
+
+.card__errors {
+  text-align: center;
 }
 
 @media screen and (max-width: 1279px) {

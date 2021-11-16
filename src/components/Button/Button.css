@@ -15,6 +15,9 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 .button_type_login {
@@ -131,6 +134,10 @@
   font-weight: normal;
   font-size: 13px;
   line-height: 16px;
+
+  border: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .button_type_profile-logout {
@@ -167,10 +174,10 @@
   border: 0;
   background-position: center;
   background-repeat: no-repeat;
-  padding:0;
+  padding: 0;
 }
 
-.button_type_submit{
+.button_type_submit {
   padding: 0;
   border: 1px solid #000;
   font-family: Inter, "Arial", "Helvetica", sans-serif;
@@ -187,6 +194,11 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.button_type_submit:disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 1279px) {
@@ -223,9 +235,5 @@
   .button_type_close {
     right: 13px;
     top: 13px;
-  }
-
-  .button_type_submit{
-    /* margin-top: auto; */
   }
 }

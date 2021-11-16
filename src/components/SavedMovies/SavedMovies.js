@@ -1,20 +1,16 @@
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import MoviesList from "../MoviesList/MoviesList";
 import Header from "../Header/Header";
-import SearchForm from "../SearchForm/SearchForm";
-import Footer from "../Footer/Footer";
-import { savedCards } from "../../utils/constants";
 import Navigation from "../Navigation/Navigation";
+import Footer from "../Footer/Footer";
 
 function SavedMovies() {
   return (
     <>
-      <Header> 
-        <Navigation/>
+      <Header>
+        <Navigation />
       </Header>
-      <section className="saved-movies">
-        <SearchForm />
-        <MoviesCardList cards={savedCards} savedCards={true} />
-      </section>
+
+      <MoviesList inSaved={true} />
       <Footer />
     </>
   );

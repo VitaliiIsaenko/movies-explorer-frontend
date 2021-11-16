@@ -1,23 +1,19 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import SearchForm from "../SearchForm/SearchForm";
 import "./Movies.css";
-import Preloader from "../Preloader/Preloader";
-import { cards } from "../../utils/constants";
 import Navigation from "../Navigation/Navigation";
+import React from "react";
+import MoviesList from "../MoviesList/MoviesList";
 
-function Movies(props) {
+function Movies() {
   return (
     <>
       <Header>
         <Navigation />
       </Header>
-      <section className="movies">
-        <SearchForm />
-        <MoviesCardList cards={cards} />
-        <Preloader />
-      </section>
+
+      <MoviesList />
+
       <Footer />
     </>
   );
